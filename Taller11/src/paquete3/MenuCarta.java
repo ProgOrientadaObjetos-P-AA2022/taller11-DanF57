@@ -16,41 +16,60 @@ public class MenuCarta extends Menu {
     private double valorBebida;
     private double porcentajeServicio; //porcentaje adicional por servicio
 
-    public MenuCarta(String n, double vI, 
-                        double vG, double vB, double pS){
+    public MenuCarta(String n, double vI,
+            double vG, double vB, double pS) {
         super(n, vI);
         setValorGuarnicion(vG);
         setValorBebida(vB);
         setPorcentajeServicio(pS);
     }
 
-    public void setValorGuarnicion(double c){
+    public void setValorGuarnicion(double c) {
         valorGuarnicion = c;
     }
-    
-    public void setValorBebida(double c){
+
+    public void setValorBebida(double c) {
         valorBebida = c;
     }
 
-    public void setPorcentajeServicio(double c){
-        porcentajeServicio = valorInicial*(c/100);
+    public void setPorcentajeServicio(double c) {
+        porcentajeServicio = valorInicial * (c / 100);
     }
 
     @Override
     public void setValorMenu() {
         valorMenu = valorInicial + valorGuarnicion + valorBebida
-                        + porcentajeServicio;
+                + porcentajeServicio;
     }
 
-    public double getValorGuarnicion(){
+    public double getValorGuarnicion() {
         return valorGuarnicion;
     }
 
-    public double getValorBebida(){
+    public double getValorBebida() {
         return valorBebida;
     }
 
-    public double getPorcentajeServicio(){
+    public double getPorcentajeServicio() {
         return porcentajeServicio;
+    }
+
+    @Override
+    public String toString() {
+        String cadena = String.format("Menú a la Carta\n"
+                + "Nombre del Plato: %s\n"
+                + "Valor Inicial del menú: %.2f\n"
+                + "Valor Guarnición: %.2f\n"
+                + "Valor Bebida: %.2f\n"
+                + "Porcentaje por servicio: %.2f\n"
+                + "Valor del Menú: %.2f\n",
+                getNombrePlato(),
+                getValorInicial(),
+                getValorGuarnicion(),
+                getValorBebida(),
+                getPorcentajeServicio(),
+                getValorMenu());
+
+        return cadena;
     }
 }

@@ -14,31 +14,31 @@ public abstract class Menu {
     protected double valorMenu;
     protected double valorInicial;
 
-    public Menu(String n, double vI){
+    public Menu(String n, double vI) {
         nombrePlato = n;
         valorInicial = vI;
     }
 
-    public void setNombrePlato(String n){
+    public void setNombrePlato(String n) {
         nombrePlato = n;
     }
 
-    public void setValorInicial(double vI){
+    public void setValorInicial(double vI) {
         valorInicial = vI;
     }
 
     public abstract void setValorMenu();
 
-    public String getNombrePlato(){
+    public String getNombrePlato() {
         return nombrePlato;
     }
 
-    public double getValorInicial(){
+    public double getValorInicial() {
         return valorInicial;
-    } 
+    }
 
-    public double getValorPlato(){
+    public double getValorMenu() {
         return valorMenu;
     }
-    
+
 }
