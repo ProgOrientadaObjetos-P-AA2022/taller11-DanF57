@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Cuenta {
 
-    //nombre del cliente, IVA, listado de cartas -menú-, valor a cancelar total
+    // nombre del cliente, IVA, listado de cartas -menú-, valor a cancelar total
     private String nombreCliente;
     private double iva;
     private ArrayList<Menu> listaCartas;
@@ -19,12 +19,19 @@ public class Cuenta {
         subtotal = 0;
     }
 
+    public Cuenta(String nC,  ArrayList<Menu> ls, double iv) {
+        nombreCliente = nC;
+        setIva(iv);
+        setListaCartas(ls);
+        subtotal = 0;
+    }
+
     public void setNombreCliente(String n) {
         nombreCliente = n;
     }
 
     public void setIva(double n) {
-        iva = n / 100;
+        iva = n;
     }
 
     public void setListaCartas(ArrayList<Menu> ls) {
@@ -38,7 +45,7 @@ public class Cuenta {
     }
 
     public void setTotal() {
-        total = subtotal + (subtotal * iva);
+        total = subtotal + (subtotal * (iva / 100));
     }
 
     public String getNombreCliente() {
@@ -46,7 +53,7 @@ public class Cuenta {
     }
 
     public double getIVA() {
-        return iva * subtotal;
+        return iva;
     }
 
     public ArrayList<Menu> getListaCartas() {
@@ -63,14 +70,9 @@ public class Cuenta {
 
     @Override
     public String toString() {
-        String cadena = String.format("Datos Cuenta\n"
-                + "Nombre Cliente: %s\n"
-                + "Subtotal: %.2f\n"
-                + "Iva: %.2f\n\n" //Valor del Iva en base al subtotal
-                + "Lista de Menus Pedidos\n",
-                getNombreCliente(),
-                getSubtotal(),
-                getIVA());
+        String cadena = String.format("Factura\n"
+                + "Cliente: %s\n",
+                getNombreCliente());
 
         for (int i = 0; i < getListaCartas().size(); i++) {
             cadena = String.format("%s"
@@ -79,8 +81,13 @@ public class Cuenta {
                     getListaCartas().get(i));
         }
 
-        cadena = String.format("\n%sTotal a Cancelar: %.2f\n",
+        cadena = String.format("\n%s"
+                + "Subtotal: %.1f\n"
+                + "IVA: %.1f\n"
+                + "Total a pagar: %.3f\n",
                 cadena,
+                getSubtotal(),
+                getIVA(),
                 getTotal());
         return cadena;
     }

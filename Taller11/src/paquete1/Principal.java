@@ -27,26 +27,27 @@ public class Principal {
 
         ArrayList<Menu> listaCartas = new ArrayList<>();
 
-        MenuNinos nino1 = new MenuNinos("Nuggets", 4.50, 1.50, 1.25);
-        MenuNinos nino2 = new MenuNinos("Salchipapa", 2.50, 0, 2.50);
+        // MenuNinos nino1 = new MenuNinos("Nuggets", 4.50, 1.50, 1.25);
 
-        MenuEconomico eco1 = new MenuEconomico("Pizza Economica", 5.50, 15);
+        MenuEconomico eco1 = new MenuEconomico("Econo001", 4, 25);
 
-        MenuDia dia = new MenuDia("Lomo de Cerdo", 6.50, 1, 2.75);
+        MenuDia dia = new MenuDia("Niños 01", 2, 1, 1.50);
+        MenuDia dia2 = new MenuDia("Niños 02", 3, 1, 1.50);
+        MenuDia dia3 = new MenuDia("Dia 001", 5, 1, 1);
 
-        MenuCarta carta = new MenuCarta("Salmon", 10.50, 1, 3, 5);
+        MenuCarta carta = new MenuCarta("Carta 001", 6, 1.5, 2, 10);
 
-        listaCartas.add(nino1);
-        listaCartas.add(nino2);
-        listaCartas.add(eco1);
         listaCartas.add(dia);
+        listaCartas.add(dia2);
+        listaCartas.add(eco1);
+        listaCartas.add(dia3);
         listaCartas.add(carta);
 
         for (int i = 0; i < listaCartas.size(); i++) {
             listaCartas.get(i).setValorMenu();
         }
 
-        Cuenta cuenta = new Cuenta("Danie Flores", 12, listaCartas);
+        Cuenta cuenta = new Cuenta("René Elizalde", 10, listaCartas);
         cuenta.setSubtotal();
         cuenta.setTotal();
 
